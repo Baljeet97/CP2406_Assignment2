@@ -30,8 +30,6 @@ public class MainMenu extends JFrame implements ActionListener {
         file.add(exit);
         mainSim.add(simulation);
         mainCity.add(city);
-        JMenuItem loadCity = new JMenuItem("Load File");
-        mainCity.add(loadCity);
 
         JLabel heading = new JLabel("Welcome to Traffic Simulator");
         add(heading);
