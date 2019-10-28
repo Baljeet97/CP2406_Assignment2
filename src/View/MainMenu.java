@@ -10,6 +10,8 @@ public class MainMenu extends JFrame implements ActionListener {
     private JMenuItem simulation = new JMenuItem("Start Simulator");
     private JMenuItem city = new JMenuItem("City Edit Mode");
 
+    DrawPanel drawPanel = new DrawPanel();
+
     public MainMenu() {
         setTitle("Traffic Simulator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -52,6 +54,10 @@ public class MainMenu extends JFrame implements ActionListener {
             System.exit(0);
         } else if (source == simulation) {
             SimMenu simMenu = new SimMenu();
+            simMenu.add(new DrawPanel());
+
+
+            System.out.println("yes");
         } else if (source == city) {
             CityMenu cityMenu = new CityMenu();
         }

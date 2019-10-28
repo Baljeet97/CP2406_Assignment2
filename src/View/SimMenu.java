@@ -2,8 +2,15 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-class SimMenu extends JFrame {
+public class SimMenu extends JFrame implements ActionListener {
+    JButton start = new JButton("Start");
+    JButton stop = new JButton("Stop");
+
+    DrawPanel drawPanel = new DrawPanel();
+
 
     SimMenu() {
         setTitle("Simulator");
@@ -12,13 +19,25 @@ class SimMenu extends JFrame {
         setVisible(true);
 
         JPanel top = new JPanel();
-        JButton start = new JButton("Start");
+
         top.add(start);
 
-        JButton stop = new JButton("Stop");
         top.add(stop);
         add(top, BorderLayout.SOUTH);
         JPanel bottom = new JPanel();
         add(bottom);
+
+        start.addActionListener(this);
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+
+        if (source == start) {
+
+            start.addActionListener(actionEvent -> drawPanel.animate());
+        }
     }
 }
