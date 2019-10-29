@@ -7,60 +7,43 @@ public class Road extends Shapes {
     private int x, y;
     private boolean isVertical;
 
-    public Road(int x, int y, Color color, boolean isVertical) {
-        super(x, y, color);
+    public Road(int x, int y, boolean isVertical) {
+        super(x, y);
         this.x = x;
         this.y = y;
+        this.color = new Color(0, 0, 88);
         this.isVertical = isVertical;
-        straightRoad();
+        roadDimensions();
     }
 
 
-    public void straightRoad() {
+    public void roadDimensions() {
         if (!isVertical) {
-            this.width = 200;
-            this.height = 80;
+            this.width = 800;
+            this.height = 100;
         } else {
-            this.width = 80;
-            this.height = 200;
+            this.width = 100;
+            this.height = 800;
         }
     }
 
-    public void setVertical(boolean vertical) {
-        isVertical = vertical;
-    }
 
     public int getX() {
         return this.x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
     }
 
     public int getY() {
         return this.y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
     public int getHeight() {
         return this.height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 
     public int getWidth() {
         return this.width;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
 
     @Override
     public void update(int boundaryWidth, int boundaryHeight) {
@@ -70,8 +53,7 @@ public class Road extends Shapes {
     @Override
     public void paintComponent(Graphics g) {
         g.setColor(color);
-        g.drawRect(x, y, width, height);
-
+        g.fillRect(x, y, width, height);
     }
 
 }

@@ -8,15 +8,15 @@ import java.awt.event.ActionListener;
 public class SimMenu extends JFrame implements ActionListener {
     JButton start = new JButton("Start");
     JButton stop = new JButton("Stop");
-
     DrawPanel drawPanel = new DrawPanel();
 
 
-    SimMenu() {
+    public SimMenu() {
         setTitle("Simulator");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(900, 600);
+        setSize(1000, 700);
         setVisible(true);
+        setResizable(false);
 
         JPanel top = new JPanel();
 
@@ -26,8 +26,10 @@ public class SimMenu extends JFrame implements ActionListener {
         add(top, BorderLayout.SOUTH);
         JPanel bottom = new JPanel();
         add(bottom);
+        drawPanel.animate();
 
-        start.addActionListener(this);
+        //start.addActionListener(this);
+
     }
 
 
@@ -36,8 +38,9 @@ public class SimMenu extends JFrame implements ActionListener {
         Object source = e.getSource();
 
         if (source == start) {
-
-            start.addActionListener(actionEvent -> drawPanel.animate());
+            //add(drawPanel);
+            drawPanel.animate();
+            System.out.println("Start");
         }
     }
 }

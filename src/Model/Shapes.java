@@ -7,10 +7,9 @@ public abstract class Shapes {
     Color color;
 
 
-    Shapes(int x, int y, Color color) {
+    Shapes(int x, int y) {
         this.x = x;
         this.y = y;
-        this.color = color;
 
     }
 

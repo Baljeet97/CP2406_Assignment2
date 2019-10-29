@@ -8,15 +8,15 @@ public class Car extends Vehicle {
     private boolean isVertical;
 
     public Car(int x, int y, int xDir, int yDir) {
-        super(x, y, xDir, yDir);
+        super(x, y);
         this.x = x;
         this.y = y;
         this.height = 20;
         this.width = 40;
         this.xDir = xDir;
         this.yDir = yDir;
-        this.isVertical = isVertical;
         this.color = new Color(102, 0, 153);
+        this.isVertical = false;
     }
 
     public void setVertical(boolean vertical) {
@@ -81,13 +81,13 @@ public class Car extends Vehicle {
 
     @Override
     public void move() {
-        x += xDir;
-        y += yDir;
+        x += xSpeed * xDir;
+        y += ySpeed * yDir;
     }
 
     @Override
-    public void update(int width, int height) {
-        xDir = 1;
+    public void update() {
+//        xDir = 1;
         if (x + width == 249) {
             yDir = 1;
             xDir = 0;
@@ -100,9 +100,9 @@ public class Car extends Vehicle {
         g.setColor(color);
 
 
-        if (isVertical)
+        if (!isVertical)
             g.fillRect(x, y, width, height);
         else
-            g.fillRect(x + width - 5, y, height, width);
+            g.fillRect(x + width - 5, y, width, height);
     }
 }

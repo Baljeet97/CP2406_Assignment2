@@ -5,12 +5,15 @@ import java.awt.*;
 public abstract class Vehicle {
     int x, y;
     int xDir, yDir;
+    int xSpeed, ySpeed;
 
-    Vehicle(int x, int y, int xDir, int yDir) {
+    Vehicle(int x, int y) {
         this.x = x;
         this.y = y;
-        this.xDir = xDir;
-        this.yDir = yDir;
+
+        xDir = 0;
+        yDir = 0;
+
     }
 
     public void move() {
@@ -18,7 +21,7 @@ public abstract class Vehicle {
         y += yDir;
     }
 
-    public abstract void update(int width, int height);
+    public abstract void update();
 
     public abstract void paintComponent(Graphics g);
 }
