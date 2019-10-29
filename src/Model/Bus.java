@@ -2,20 +2,20 @@ package Model;
 
 import java.awt.*;
 
-public class Car extends Vehicle {
+public class Bus extends Vehicle {
     private Color color;
     private int x, y, xDir, yDir, length, width;
     private boolean isVertical;
 
-    public Car(int x, int y, int xDir, int yDir) {
+    public Bus(int x, int y, int xDir, int yDir) {
         super(x, y);
         this.x = x;
         this.y = y;
-        this.width = 20;
-        this.length = 40;
+        this.width = 50;
+        this.length = 20;
         this.xDir = xDir;
         this.yDir = yDir;
-        this.color = new Color(117, 0, 176);
+        this.color = new Color(240, 221, 17);
         this.isVertical = false;
     }
 
@@ -81,8 +81,7 @@ public class Car extends Vehicle {
 
     @Override
     public void move() {
-        x += xSpeed * xDir;
-        y += ySpeed * yDir;
+
     }
 
     @Override
@@ -103,6 +102,6 @@ public class Car extends Vehicle {
         if (!isVertical)
             g.fillRect(x, y, length, width);
         else
-            g.fillRect(x + length - 5, y, length, width);
+            g.fillRect(x + length + 5, y, length, width);
     }
 }

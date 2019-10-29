@@ -11,7 +11,7 @@ public class Road extends Shapes {
         super(x, y);
         this.x = x;
         this.y = y;
-        this.color = new Color(0, 0, 88);
+        this.color = new Color(0, 4, 39);
         this.isVertical = isVertical;
         roadDimensions();
     }

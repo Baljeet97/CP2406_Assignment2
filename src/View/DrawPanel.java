@@ -1,5 +1,6 @@
 package View;
 
+import Model.Bus;
 import Model.Car;
 import Model.Road;
 
@@ -11,6 +12,7 @@ public class DrawPanel extends JPanel {
     Road straight = new Road(0, 300, false);
     Road tSection = new Road(800, 0, true);
     Car car = new Car(straight.getX() + 5, straight.getY() + 5, 1, 0);
+    Bus bus = new Bus(fourWay.getX() + 70, fourWay.getY() + 5, 1, 0);
     private Model.Shapes[] shapes;
     Timer timer;
 
@@ -44,6 +46,7 @@ public class DrawPanel extends JPanel {
         fourWay.paintComponent(g);
         tSection.paintComponent(g);
         car.paintComponent(g);
+        bus.paintComponent(g);
 
     }
 }
