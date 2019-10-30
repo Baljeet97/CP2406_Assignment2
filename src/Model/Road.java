@@ -2,38 +2,31 @@ package Model;
 
 import java.awt.*;
 
-public class Road extends Shapes {
+public class Road extends Shape {
+    private Color color;
     private int height, width;
     private int x, y;
-    private boolean isVertical;
+    private Boolean is_Vertical;
 
-    public Road(int x, int y, boolean isVertical) {
+    public Road(int x, int y, boolean is_Vertical) {
         super(x, y);
         this.x = x;
         this.y = y;
         this.color = new Color(0, 4, 39);
-        this.isVertical = isVertical;
-        roadDimensions();
+        this.is_Vertical = is_Vertical;
+        setDimensions();
     }
 
-
-    public void roadDimensions() {
-        if (!isVertical) {
+    public void setDimensions() //  sets the road to be a random length between 6 and 15
+    {
+        if (!is_Vertical) {
             this.width = 800;
             this.height = 100;
         } else {
             this.width = 100;
             this.height = 800;
         }
-    }
 
-
-    public int getX() {
-        return this.x;
-    }
-
-    public int getY() {
-        return this.y;
     }
 
     public int getHeight() {
@@ -44,9 +37,16 @@ public class Road extends Shapes {
         return this.width;
     }
 
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
 
     @Override
-    public void update(int boundaryWidth, int boundaryHeight) {
+    public void update(int boundaryWidth, int boundaryHeight, TrafficLight.State state) {
 
     }
 
@@ -55,5 +55,4 @@ public class Road extends Shapes {
         g.setColor(color);
         g.fillRect(x, y, width, height);
     }
-
 }
