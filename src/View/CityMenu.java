@@ -18,7 +18,7 @@ class CityMenu extends JFrame implements ActionListener {
 
         JMenu file = new JMenu("File");
         cityMenu.add(file);
-        JMenu roads = new JMenu("Add Road");
+        JMenu roads = new JMenu("Add Model.Road");
         cityMenu.add(roads);
         JMenu lights = new JMenu("Add Traffic Lights");
         cityMenu.add(lights);
@@ -28,7 +28,7 @@ class CityMenu extends JFrame implements ActionListener {
         JMenuItem save = new JMenuItem("Save file");
         file.add(save);
 
-        JMenuItem straight = new JMenuItem("Straight Road");
+        JMenuItem straight = new JMenuItem("Straight Model.Road");
         roads.add(straight);
         JMenuItem tSection = new JMenuItem("T-Intersection");
         roads.add(tSection);

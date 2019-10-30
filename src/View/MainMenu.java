@@ -1,5 +1,7 @@
 package View;
 
+import Controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,7 +12,6 @@ public class MainMenu extends JFrame implements ActionListener {
     private JMenuItem simulation = new JMenuItem("Start Simulator");
     private JMenuItem city = new JMenuItem("City Edit Mode");
 
-    DrawPanel drawPanel = new DrawPanel();
 
     public MainMenu() {
         setTitle("Traffic Simulator");
@@ -53,13 +54,11 @@ public class MainMenu extends JFrame implements ActionListener {
         if (source == exit) {
             System.exit(0);
         } else if (source == simulation) {
-            SimMenu simMenu = new SimMenu();
-            simMenu.add(new DrawPanel());
+            Controller.simulationMenu();
 
-
-            System.out.println("yes");
         } else if (source == city) {
-            CityMenu cityMenu = new CityMenu();
+            new CityMenu();
+
         }
     }
 }
