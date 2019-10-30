@@ -5,7 +5,6 @@ import javax.swing.*;
 public class SimMenu {
 
     public JButton start = new JButton("Start");
-    public JButton stop = new JButton("stop");
-
+    public JButton stop = new JButton("Stop");
 
 }

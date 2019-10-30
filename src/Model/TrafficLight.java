@@ -12,7 +12,7 @@ public class TrafficLight extends Shape {
 
     public TrafficLight(int x, int y, Color color) {
         super(x, y);
-        setPosition();
+//        setPosition();
         state = State.STOP;
         change_rate = 0.995;
         width = 20;
@@ -31,12 +31,12 @@ public class TrafficLight extends Shape {
         g.fillRect(x, y, width, height);
     }
 
-    public void setPosition() {
-        Road road = new Road(1, 1, true);
-        this.positionX = road.getHeight();
-        this.positionY = road.getWidth();
-        this.color = Color.red;
-    }
+//    public void setPosition() {
+//        Road road = new Road(1, 1, true);
+//        this.positionX = road.getHeight();
+//        this.positionY = road.getWidth();
+//        this.color = Color.red;
+//    }
 
     // Setters and Getters
 
