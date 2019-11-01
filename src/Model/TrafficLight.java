@@ -61,7 +61,7 @@ public class TrafficLight extends Shape {
         return this.state;
     }
 
-    private Color getColor() {
+    public Color getColor() {
         if (state.equals(State.GO))
             return Color.green;
         else

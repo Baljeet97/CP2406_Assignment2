@@ -34,12 +34,20 @@ public class Road extends Shape {
         return this.height;
     }
 
+    public int getWidth() {
+        return width;
+    }
+
     public int getX() {
         return this.x;
     }
 
     public int getY() {
         return this.y;
+    }
+
+    public Boolean getVertical() {
+        return isVertical;
     }
 
     @Override

@@ -47,6 +47,22 @@ public class Bike extends Vehicle {
             //to turn the car left or right that why width is in place height and height is in place of width
             g.fillRect(x - width + 5, y, height, width);
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getxDir() {
+        return xDir;
+    }
+
+    public int getyDir() {
+        return yDir;
+    }
 }
 
 
