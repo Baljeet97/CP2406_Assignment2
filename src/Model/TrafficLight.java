@@ -8,12 +8,12 @@ public class TrafficLight extends Shape {
     private Color color;
     private int width, height;
     private State state;
-    private double change_rate;
+    private double changeState;
 
     public TrafficLight(int x, int y) {
         super(x, y);
         state = State.STOP;
-        change_rate = 0.995;
+        changeState = 0.995;
         width = 20;
         height = 20;
         this.color = getColor();
@@ -35,13 +35,13 @@ public class TrafficLight extends Shape {
 
         switch (state) {
             case GO:
-                if (nextDouble >= this.change_rate) {
+                if (nextDouble >= this.changeState) {
                     state = State.STOP;
                     color = Color.red;
                 }
                 break;
             case STOP:
-                if (nextDouble >= this.change_rate) {
+                if (nextDouble >= this.changeState) {
                     state = State.GO;
                     color = Color.green;
                 }

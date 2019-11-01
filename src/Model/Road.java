@@ -7,21 +7,21 @@ public class Road extends Shape {
     private Color color;
     private int height, width;
     private int x, y;
-    private Boolean is_Vertical;
+    private Boolean isVertical;
 
-    public Road(int x, int y, boolean is_Vertical) {
+    public Road(int x, int y, boolean isVertical) {
 
         super(x, y);
         this.x = x;
         this.y = y;
         this.color = new Color(0, 4, 39);
-        this.is_Vertical = is_Vertical;
-        setDimensions();
+        this.isVertical = isVertical;
+        roadDimensions();
     }
 
-    private void setDimensions() // setting road length and width according to the orientation
+    private void roadDimensions() // setting road length and width according to the orientation
     {
-        if (!is_Vertical) {
+        if (!isVertical) {
             this.width = 950;
             this.height = 100;
         } else {

@@ -6,7 +6,7 @@ public class Bus extends Vehicle {
 
     private int x, y, xDir, yDir, width, height;
     private Color color;
-    private Boolean is_Vertical;
+    private Boolean isVertical;
 
     public Bus(int x, int y, int xDir, int yDir) {
 
@@ -18,7 +18,7 @@ public class Bus extends Vehicle {
         this.xDir = xDir;
         this.yDir = yDir;
         this.color = new Color(240, 221, 17);
-        this.is_Vertical = true;
+        this.isVertical = true;
     }
 
     @Override
@@ -39,14 +39,14 @@ public class Bus extends Vehicle {
             yDir = 0;
             x -= xDir;
             xSpeed = randomSpeed();
-            is_Vertical = false;
+            isVertical = false;
         }
     }
 
     @Override
     public void paintComponent(Graphics g) {
         g.setColor(color);
-        if (is_Vertical)
+        if (isVertical)
             g.fillRect(x, y, width, height);
         else
             //to turn the car left or right that why width is in place height and height is in place of width
