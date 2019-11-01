@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class TrafficLight extends Shape {
 
-    Color color;
+    private Color color;
     private int positionX, positionY, width, height;
     private State state;
     private double change_rate;
@@ -21,7 +21,6 @@ public class TrafficLight extends Shape {
 
     @Override
     public void update(int boundaryWidth, int boundaryHeight, TrafficLight.State state) {
-
     }
 
     @Override
@@ -30,9 +29,7 @@ public class TrafficLight extends Shape {
         g.fillRect(x, y, width, height);
     }
 
-    // Setters and Getters
-
-    public Object setState() {
+    public void setState() {
         Random random = new Random();
         double nextDouble = random.nextDouble(); // Generates a random double
 
@@ -43,7 +40,6 @@ public class TrafficLight extends Shape {
                     color = Color.red;
                 }
                 break;
-
             case STOP:
                 if (nextDouble >= this.change_rate) {
                     state = State.GO;
@@ -51,7 +47,6 @@ public class TrafficLight extends Shape {
                 }
                 break;
         }
-        return state;
     }
 
     public int getPositionX() {
@@ -62,15 +57,11 @@ public class TrafficLight extends Shape {
         return this.y;
     }
 
-    public int getWidth() {
-        return this.width;
-    }
-
     public State getState() {
         return this.state;
     }
 
-    public Color getColor() {
+    private Color getColor() {
         if (state.equals(State.GO))
             return Color.green;
         else
@@ -81,8 +72,8 @@ public class TrafficLight extends Shape {
         this.color = color;
     }
 
-    public enum State {
-        STOP, GO, WAIT
+    public enum State { //Using enums to determine the state
+        STOP, GO
     }
 }
 

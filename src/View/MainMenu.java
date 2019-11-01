@@ -8,13 +8,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainMenu extends JFrame implements ActionListener {
+
     private JMenuItem exit = new JMenuItem("Exit");
-    JMenuItem about = new JMenuItem("About");
+    private JMenuItem about = new JMenuItem("About");
     private JMenuItem simulation = new JMenuItem("Simulator");
     private JMenuItem city = new JMenuItem("City Editing Mode");
 
-
     public MainMenu() {
+
         setTitle("Traffic Simulator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
@@ -24,6 +25,7 @@ public class MainMenu extends JFrame implements ActionListener {
 
         JMenu file = new JMenu("File");
         mainBar.add(file);
+        file.add(exit);
 
         JMenu mode = new JMenu("Mode");
         mainBar.add(mode);
@@ -31,13 +33,10 @@ public class MainMenu extends JFrame implements ActionListener {
         JMenu aboutMain = new JMenu("About");
         mainBar.add(aboutMain);
 
-
         aboutMain.add(about);
 
         mode.add(simulation);
         mode.add(city);
-
-
 
         JLabel heading = new JLabel("Welcome to Traffic Simulator");
         add(heading);
@@ -52,22 +51,17 @@ public class MainMenu extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-
         if (source == exit) {
             System.exit(0);
         } else if (source == simulation) {
             Controller.simulationMenu();
-
         } else if (source == city) {
             new CityMenu();
-
         } else if (source == about) {
-            JOptionPane.showMessageDialog(null, "ME");
+            JOptionPane.showMessageDialog(null, "Baljeet Singh" + "\n CP2406");
         }
-
     }
 }

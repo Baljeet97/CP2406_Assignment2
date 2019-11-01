@@ -8,8 +8,8 @@ public class Bike extends Vehicle {
     private Color color;
     private Boolean is_Vertical;
 
-
     public Bike(int x, int y, int xDir, int yDir) {
+
         super(x, y);
         this.x = x;
         this.y = y;
@@ -23,17 +23,11 @@ public class Bike extends Vehicle {
 
     @Override
     public void move() {
-//        x += xDir;
         y += yDir;
     }
 
-
     @Override
     public void update(int trafficLightXPos, int trafficLightYPos, TrafficLight.State state) {
-//        if ((x + width == trafficLightXPos && state == TrafficLight.State.STOP)) {
-//            xDir = -1;
-//        } else if ((state == TrafficLight.State.GO))
-//            xDir = -1;
 
         if (y + width == 380) {
             yDir = 0;
@@ -41,7 +35,6 @@ public class Bike extends Vehicle {
             xSpeed = randomSpeed();
             is_Vertical = false;
         }
-
     }
 
     @Override
@@ -51,6 +44,7 @@ public class Bike extends Vehicle {
         if (is_Vertical)
             g.fillRect(x, y, width, height);
         else
+            //to turn the car left or right that why width is in place height and height is in place of width
             g.fillRect(x - width + 5, y, height, width);
     }
 }

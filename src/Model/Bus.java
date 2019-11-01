@@ -3,11 +3,13 @@ package Model;
 import java.awt.*;
 
 public class Bus extends Vehicle {
+
     private int x, y, xDir, yDir, width, height;
     private Color color;
     private Boolean is_Vertical;
 
     public Bus(int x, int y, int xDir, int yDir) {
+
         super(x, y);
         this.x = x;
         this.y = y;
@@ -21,42 +23,34 @@ public class Bus extends Vehicle {
 
     @Override
     public void move() {
-//        x += xDir;
         y += yDir;
     }
 
 
     @Override
-    //We talking Y here Not X --> Check Controller --> bus
     public void update(int trafficLightXPos, int trafficLightYPos, TrafficLight.State state) {
-//        if (x == 360) {
-//            yDir = 1;
-//        } else
         if ((y + height - 100 == trafficLightXPos && state == TrafficLight.State.STOP)) {
-//            if ((y + width == 200 && state == TrafficLight.State.STOP)) {
             yDir = 0;
             xDir = 1;
             xSpeed = randomSpeed();
         } else if ((state == TrafficLight.State.GO))
             yDir = 1;
         ySpeed = randomSpeed();
-
         if (y + width == 380) {
             yDir = 0;
             x -= xDir;
             xSpeed = randomSpeed();
             is_Vertical = false;
         }
-
     }
 
     @Override
     public void paintComponent(Graphics g) {
         g.setColor(color);
-
         if (is_Vertical)
             g.fillRect(x, y, width, height);
         else
+            //to turn the car left or right that why width is in place height and height is in place of width
             g.fillRect(x - width + 5, y, height, width);
     }
 }

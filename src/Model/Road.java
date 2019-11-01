@@ -3,12 +3,14 @@ package Model;
 import java.awt.*;
 
 public class Road extends Shape {
+
     private Color color;
     private int height, width;
     private int x, y;
     private Boolean is_Vertical;
 
     public Road(int x, int y, boolean is_Vertical) {
+
         super(x, y);
         this.x = x;
         this.y = y;
@@ -17,7 +19,7 @@ public class Road extends Shape {
         setDimensions();
     }
 
-    public void setDimensions() //  sets the road to be a random length between 6 and 15
+    private void setDimensions() // setting road length and width according to the orientation
     {
         if (!is_Vertical) {
             this.width = 950;
@@ -26,15 +28,10 @@ public class Road extends Shape {
             this.width = 100;
             this.height = 800;
         }
-
     }
 
     public int getHeight() {
         return this.height;
-    }
-
-    public int getWidth() {
-        return this.width;
     }
 
     public int getX() {
@@ -47,7 +44,6 @@ public class Road extends Shape {
 
     @Override
     public void update(int boundaryWidth, int boundaryHeight, TrafficLight.State state) {
-
     }
 
     @Override

@@ -4,9 +4,10 @@ import java.awt.*;
 import java.util.Random;
 
 public abstract class Vehicle {
-    int x, y;
+
+    int x, y; //can't make it private, needs to access from child classes
     private final static Random random = new Random();
-    int xDir, yDir, ySpeed, xSpeed;
+    int xDir, yDir, ySpeed, xSpeed;//can't make it private, needs to access from child classes
 
     Vehicle(int x, int y) {
         this.x = x;
@@ -16,13 +17,11 @@ public abstract class Vehicle {
         yDir = 0;
         xSpeed += 5;
         ySpeed += 6;
-
     }
 
     static int randomSpeed() {
-        return random.nextInt(10) + 1;
+        return random.nextInt(10) + 1; //Random speed for Vehicles
     }
-
 
     public void move() {
         x += xSpeed * xDir;

@@ -36,7 +36,7 @@ public class Controller extends JPanel {
     public static void main(String[] args) {
 
 
-        MainMenu menu = new MainMenu();
+        new MainMenu();
 
     }
 
@@ -45,7 +45,7 @@ public class Controller extends JPanel {
         frame.add(new Controller());
         frame.setSize(1000, 700);
         frame.setVisible(true);
-//        frame.setResizable(false);
+        frame.setResizable(false);
         frame.setTitle("Simulator");
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -99,7 +99,6 @@ public class Controller extends JPanel {
         bike.paintComponent(g);
         trafficLightStraight.paintComponent(g);
         trafficLightFourWay.paintComponent(g);
-//        stoplight.paintComponent(g);
 
         Model.Vehicle[] vehicles = new Model.Vehicle[cars];
         for (int i = 0; i < vehicles.length; ++i) {
