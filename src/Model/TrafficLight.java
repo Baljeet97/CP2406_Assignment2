@@ -12,7 +12,7 @@ public class TrafficLight extends Shape {
 
     public TrafficLight(int x, int y, Color color) {
         super(x, y);
-//        setPosition();
+        setPosition();
         state = State.STOP;
         change_rate = 0.995;
         width = 20;
@@ -31,29 +31,29 @@ public class TrafficLight extends Shape {
         g.fillRect(x, y, width, height);
     }
 
-//    public void setPosition() {
-//        Road road = new Road(1, 1, true);
-//        this.positionX = road.getHeight();
-//        this.positionY = road.getWidth();
-//        this.color = Color.red;
-//    }
+    public void setPosition() {
+        Road road = new Road(1, 1, true);
+        this.positionX = road.getHeight();
+        this.positionY = road.getWidth();
+        this.color = Color.red;
+    }
 
     // Setters and Getters
 
     public Object setState() {
         Random random = new Random();
-        double random_int = random.nextDouble(); // Generates a random double
+        double nextDouble = random.nextDouble(); // Generates a random double
 
         switch (state) {
             case GO:
-                if (random_int >= this.change_rate) {
+                if (nextDouble >= this.change_rate) {
                     state = State.STOP;
                     color = Color.red;
                 }
                 break;
 
             case STOP:
-                if (random_int >= this.change_rate) {
+                if (nextDouble >= this.change_rate) {
                     state = State.GO;
                     color = Color.green;
                 }
@@ -86,6 +86,7 @@ public class TrafficLight extends Shape {
     }
 
     public enum State {
-        STOP, GO
+        STOP, GO, WAIT
     }
 }
+

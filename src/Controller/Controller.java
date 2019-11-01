@@ -13,12 +13,12 @@ public class Controller extends JPanel {
     SimMenu menu = new SimMenu();
     Road straight = new Road(0, 300, false);
     Road fourWay = new Road(300, 0, true);
-    Road tSection = new Road(900, 0, true);
+    Road tSection = new Road(890, 0, true);
     Car car = new Car(straight.getX() + 5, straight.getY() + 5, 1, 0);
     Bus bus = new Bus(fourWay.getX() + 60, fourWay.getY() + 5, 1, 0);
     Bike bike = new Bike(tSection.getX() + 60, tSection.getY() + 10, 1, 1);
     TrafficLight trafficLightStraight = new TrafficLight(straight.getX() + straight.getHeight() + 160, straight.getY() - 26, Color.red);
-    TrafficLight trafficLightFourWay = new TrafficLight(fourWay.getX() + fourWay.getHeight() - 690, fourWay.getY() + 274, Color.red);
+    TrafficLight trafficLightFourWay = new TrafficLight(fourWay.getX() + fourWay.getHeight() - 690, fourWay.getY() + 274, Color.green);
 
 
     public Controller() {
