@@ -9,8 +9,9 @@ import java.awt.event.ActionListener;
 
 public class MainMenu extends JFrame implements ActionListener {
     private JMenuItem exit = new JMenuItem("Exit");
-    private JMenuItem simulation = new JMenuItem("Start Simulator");
-    private JMenuItem city = new JMenuItem("City Edit Mode");
+    JMenuItem about = new JMenuItem("About");
+    private JMenuItem simulation = new JMenuItem("Simulator");
+    private JMenuItem city = new JMenuItem("City Editing Mode");
 
 
     public MainMenu() {
@@ -24,15 +25,19 @@ public class MainMenu extends JFrame implements ActionListener {
         JMenu file = new JMenu("File");
         mainBar.add(file);
 
-        JMenu mainSim = new JMenu("Simulator");
-        mainBar.add(mainSim);
+        JMenu mode = new JMenu("Mode");
+        mainBar.add(mode);
 
-        JMenu mainCity = new JMenu("City");
-        mainBar.add(mainCity);
+        JMenu aboutMain = new JMenu("About");
+        mainBar.add(aboutMain);
 
-        file.add(exit);
-        mainSim.add(simulation);
-        mainCity.add(city);
+
+        aboutMain.add(about);
+
+        mode.add(simulation);
+        mode.add(city);
+
+
 
         JLabel heading = new JLabel("Welcome to Traffic Simulator");
         add(heading);
@@ -41,6 +46,7 @@ public class MainMenu extends JFrame implements ActionListener {
         exit.addActionListener(this);
         simulation.addActionListener(this);
         city.addActionListener(this);
+        about.addActionListener(this);
 
         setSize(500, 300);
         setVisible(true);
@@ -59,6 +65,9 @@ public class MainMenu extends JFrame implements ActionListener {
         } else if (source == city) {
             new CityMenu();
 
+        } else if (source == about) {
+            JOptionPane.showMessageDialog(null, "ME");
         }
+
     }
 }

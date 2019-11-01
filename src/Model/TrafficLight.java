@@ -12,7 +12,6 @@ public class TrafficLight extends Shape {
 
     public TrafficLight(int x, int y, Color color) {
         super(x, y);
-        setPosition();
         state = State.STOP;
         change_rate = 0.995;
         width = 20;
@@ -29,13 +28,6 @@ public class TrafficLight extends Shape {
     public void paintComponent(Graphics g) {
         g.setColor(color);
         g.fillRect(x, y, width, height);
-    }
-
-    public void setPosition() {
-        Road road = new Road(1, 1, true);
-        this.positionX = road.getHeight();
-        this.positionY = road.getWidth();
-        this.color = Color.red;
     }
 
     // Setters and Getters
@@ -83,6 +75,10 @@ public class TrafficLight extends Shape {
             return Color.green;
         else
             return Color.red;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public enum State {

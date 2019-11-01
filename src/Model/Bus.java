@@ -36,12 +36,15 @@ public class Bus extends Vehicle {
 //            if ((y + width == 200 && state == TrafficLight.State.STOP)) {
             yDir = 0;
             xDir = 1;
+            xSpeed = randomSpeed();
         } else if ((state == TrafficLight.State.GO))
             yDir = 1;
+        ySpeed = randomSpeed();
 
         if (y + width == 380) {
             yDir = 0;
             x -= xDir;
+            xSpeed = randomSpeed();
             is_Vertical = false;
         }
 

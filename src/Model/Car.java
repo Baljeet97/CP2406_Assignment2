@@ -27,16 +27,17 @@ public class Car extends Vehicle {
     }
 
 
-
     @Override
     public void update(int trafficLightXPos, int trafficLightYPos, TrafficLight.State state) {
         if ((x + width == trafficLightXPos && state == TrafficLight.State.STOP)) {
             xDir = 0;
         } else if ((state == TrafficLight.State.GO))
             xDir = 1;
+        xSpeed = randomSpeed();
 
         if (x == 930) {
             yDir = -1;
+            ySpeed = randomSpeed();
             xDir = 0;
             is_Vertical = false;
         }
@@ -53,4 +54,6 @@ public class Car extends Vehicle {
         else
             g.fillRect(x - width + 5, y, height, width);
     }
+
+
 }

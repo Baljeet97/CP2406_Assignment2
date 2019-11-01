@@ -1,6 +1,6 @@
 package View;
 
-import Model.Road;
+import Model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,10 +27,21 @@ class CityMenu extends JFrame implements ActionListener {
     JMenuItem addBus = new JMenuItem("Bus");
     JMenuItem addBike = new JMenuItem("Bike");
 
-    CityMenu() {
 
+    final int WIDTH = 1000;
+    final int HEIGHT = 800;
+    Road straight = new Road(0, 300, false);
+    Road fourWay = new Road(300, 0, true);
+    Road tSection = new Road(890, 0, true);
+    Car car = new Car(straight.getX() + 5, straight.getY() + 5, 1, 0);
+    Bus bus = new Bus(fourWay.getX() + 60, fourWay.getY() + 5, 1, 0);
+    Bike bike = new Bike(tSection.getX() + 60, tSection.getY() + 10, 1, 1);
+    TrafficLight trafficLightStraight = new TrafficLight(straight.getX() + straight.getHeight() + 160, straight.getY() - 26, Color.red);
+    TrafficLight trafficLightFourWay = new TrafficLight(fourWay.getX() + fourWay.getHeight() - 690, fourWay.getY() + 274, Color.green);
+
+    CityMenu() {
         setTitle("City Edit Mode");
-        setSize(900, 600);
+        setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
         setLayout(new FlowLayout());
@@ -84,8 +95,31 @@ class CityMenu extends JFrame implements ActionListener {
         } else if (source == save) {
             JOptionPane.showMessageDialog(null, "File Saved!");
         } else if (source == addStraightRoad) {
-            Road straight = new Road(50, 30, true);
+            paintStraightRoad(getGraphics());
+        } else if (source == addFourWay) {
+            paintFourWayRoad(getGraphics());
+        } else if (source == addTSection) {
+            paintTSection(getGraphics());
         }
+
+    }
+
+
+    public void paintStraightRoad(Graphics g) {
+        super.paintComponents(g);
+        straight.paintComponent(g);
+    }
+
+
+    public void paintFourWayRoad(Graphics g) {
+        super.paintComponents(g);
+        fourWay.paintComponent(g);
+
+    }
+
+    public void paintTSection(Graphics g) {
+        super.paintComponents(g);
+        tSection.paintComponent(g);
 
     }
 }

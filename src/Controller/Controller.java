@@ -6,11 +6,14 @@ import View.SimMenu;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 
 public class Controller extends JPanel {
     Timer timer;
+    private static final Random random = new Random();
 
     SimMenu menu = new SimMenu();
+
     Road straight = new Road(0, 300, false);
     Road fourWay = new Road(300, 0, true);
     Road tSection = new Road(890, 0, true);
@@ -31,6 +34,8 @@ public class Controller extends JPanel {
     }
 
     public static void main(String[] args) {
+
+
         MainMenu menu = new MainMenu();
 
     }
@@ -40,6 +45,7 @@ public class Controller extends JPanel {
         frame.add(new Controller());
         frame.setSize(1000, 700);
         frame.setVisible(true);
+//        frame.setResizable(false);
         frame.setTitle("Simulator");
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,25 +53,32 @@ public class Controller extends JPanel {
 
     private void animate() {
 
-            if (timer != null) {
-                timer.stop();
-            }
-            timer = new Timer(1000 / 60, e -> {
-                bike.update(trafficLightStraight.getPositionX(), trafficLightStraight.getPositionY(), trafficLightStraight.getState());
-                bus.update(trafficLightFourWay.getPositionX(), trafficLightFourWay.getPositionY(), trafficLightFourWay.getState());
-                car.update(trafficLightStraight.getPositionX(), trafficLightStraight.getPositionY(), trafficLightStraight.getState());
-
-                bus.move();
-                car.move();
-                bike.move();
-                trafficLightStraight.setState();
-                trafficLightFourWay.setState();
-
-                repaint();
-            });
-            timer.start();
-
+        if (timer != null) {
+            timer.stop();
         }
+        timer = new Timer(1000 / 60, e -> {
+            bike.update(trafficLightStraight.getPositionX(), trafficLightStraight.getPositionY(), trafficLightStraight.getState());
+            bus.update(trafficLightFourWay.getPositionX(), trafficLightFourWay.getPositionY(), trafficLightFourWay.getState());
+            car.update(trafficLightStraight.getPositionX(), trafficLightStraight.getPositionY(), trafficLightStraight.getState());
+
+            bus.move();
+            car.move();
+            bike.move();
+            trafficLightStraight.setState();
+            trafficLightFourWay.setState();
+
+            //To check if both lights not in same state
+            if (trafficLightStraight.getState() == TrafficLight.State.GO) {
+                trafficLightFourWay.setColor(Color.red);
+            } else if (trafficLightStraight.getState() == TrafficLight.State.STOP) {
+                trafficLightFourWay.setColor(Color.green);
+            }
+
+            repaint();
+        });
+        timer.start();
+
+    }
 
 
     private void stop() {
@@ -76,15 +89,26 @@ public class Controller extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        int cars = 10;
+
         straight.paintComponent(g);
         fourWay.paintComponent(g);
         tSection.paintComponent(g);
-        car.paintComponent(g);
+
         bus.paintComponent(g);
         bike.paintComponent(g);
         trafficLightStraight.paintComponent(g);
         trafficLightFourWay.paintComponent(g);
 //        stoplight.paintComponent(g);
+
+        Model.Vehicle[] vehicles = new Model.Vehicle[cars];
+        for (int i = 0; i < vehicles.length; ++i) {
+            vehicles[i] = new Model.Car(straight.getX() + 10, straight.getY() + 5, 1, 0);
+//            System.out.println("car" + i);
+            car.paintComponent(g);
+        }
+
     }
+
 
 }
