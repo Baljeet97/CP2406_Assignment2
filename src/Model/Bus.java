@@ -26,18 +26,23 @@ public class Bus extends Vehicle {
     }
 
 
-
     @Override
+    //We talking Y here Not X --> Check Controller --> bus
     public void update(int trafficLightXPos, int trafficLightYPos, TrafficLight.State state) {
-        if ((y + width == trafficLightXPos && state == TrafficLight.State.STOP)) {
-            yDir = 1;
+//        if (x == 360) {
+//            yDir = 1;
+//        } else
+        if ((y + height - 100 == trafficLightXPos && state == TrafficLight.State.STOP)) {
+//            if ((y + width == 200 && state == TrafficLight.State.STOP)) {
+            yDir = 0;
+            xDir = 1;
         } else if ((state == TrafficLight.State.GO))
             yDir = 1;
 
-        if (x + width == 390) {
-            yDir = 1;
-            xDir = 0;
-            is_Vertical = true;
+        if (y + width == 380) {
+            yDir = 0;
+            x -= xDir;
+            is_Vertical = false;
         }
 
     }

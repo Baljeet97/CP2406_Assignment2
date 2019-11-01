@@ -27,6 +27,7 @@ public class Car extends Vehicle {
     }
 
 
+
     @Override
     public void update(int trafficLightXPos, int trafficLightYPos, TrafficLight.State state) {
         if ((x + width == trafficLightXPos && state == TrafficLight.State.STOP)) {
@@ -34,7 +35,7 @@ public class Car extends Vehicle {
         } else if ((state == TrafficLight.State.GO))
             xDir = 1;
 
-        if (x + width == 390) {
+        if (x == 930) {
             yDir = -1;
             xDir = 0;
             is_Vertical = false;

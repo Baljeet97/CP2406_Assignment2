@@ -30,15 +30,15 @@ public class Bike extends Vehicle {
 
     @Override
     public void update(int trafficLightXPos, int trafficLightYPos, TrafficLight.State state) {
-        if ((x + width == trafficLightXPos && state == TrafficLight.State.STOP)) {
-            xDir = -1;
-        } else if ((state == TrafficLight.State.GO))
-            xDir = -1;
+//        if ((x + width == trafficLightXPos && state == TrafficLight.State.STOP)) {
+//            xDir = -1;
+//        } else if ((state == TrafficLight.State.GO))
+//            xDir = -1;
 
-        if (x + width == 100) {
-//            yDir = -1;
-            xDir = -1;
-            is_Vertical = true;
+        if (y + width == 380) {
+            yDir = 0;
+            x -= xDir;
+            is_Vertical = false;
         }
 
     }

@@ -13,11 +13,12 @@ public class Controller extends JPanel {
     SimMenu menu = new SimMenu();
     Road straight = new Road(0, 300, false);
     Road fourWay = new Road(300, 0, true);
-    Road tSection = new Road(800, 0, true);
+    Road tSection = new Road(900, 0, true);
     Car car = new Car(straight.getX() + 5, straight.getY() + 5, 1, 0);
-    Bus bus = new Bus(fourWay.getX() + 60, fourWay.getY() + 10, 0, 1);
+    Bus bus = new Bus(fourWay.getX() + 60, fourWay.getY() + 5, 1, 0);
     Bike bike = new Bike(tSection.getX() + 60, tSection.getY() + 10, 1, 1);
-    TrafficLight trafficLightStraight = new TrafficLight(straight.getX() + straight.getHeight() + 150, straight.getY() - 26, Color.red);
+    TrafficLight trafficLightStraight = new TrafficLight(straight.getX() + straight.getHeight() + 160, straight.getY() - 26, Color.red);
+    TrafficLight trafficLightFourWay = new TrafficLight(fourWay.getX() + fourWay.getHeight() - 690, fourWay.getY() + 274, Color.red);
 
 
     public Controller() {
@@ -46,29 +47,26 @@ public class Controller extends JPanel {
 
     private void animate() {
 
-        Boolean is_animate = Boolean.FALSE;
-
-        while (!is_animate) {
             if (timer != null) {
                 timer.stop();
             }
             timer = new Timer(1000 / 60, e -> {
-                bus.move();
+                bike.update(trafficLightStraight.getPositionX(), trafficLightStraight.getPositionY(), trafficLightStraight.getState());
+                bus.update(trafficLightFourWay.getPositionX(), trafficLightFourWay.getPositionY(), trafficLightFourWay.getState());
                 car.update(trafficLightStraight.getPositionX(), trafficLightStraight.getPositionY(), trafficLightStraight.getState());
+
+                bus.move();
                 car.move();
                 bike.move();
                 trafficLightStraight.setState();
+                trafficLightFourWay.setState();
+
                 repaint();
-                bus.update(trafficLightStraight.getPositionX(), trafficLightStraight.getPositionY(), trafficLightStraight.getState());
-
-                bike.update(trafficLightStraight.getPositionX(), trafficLightStraight.getPositionY(), trafficLightStraight.getState());
-
             });
             timer.start();
-            is_animate = Boolean.TRUE;
+
         }
 
-    }
 
     private void stop() {
         timer.stop();
@@ -85,6 +83,7 @@ public class Controller extends JPanel {
         bus.paintComponent(g);
         bike.paintComponent(g);
         trafficLightStraight.paintComponent(g);
+        trafficLightFourWay.paintComponent(g);
 //        stoplight.paintComponent(g);
     }
 

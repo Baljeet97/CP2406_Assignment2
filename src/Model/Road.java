@@ -20,7 +20,7 @@ public class Road extends Shape {
     public void setDimensions() //  sets the road to be a random length between 6 and 15
     {
         if (!is_Vertical) {
-            this.width = 800;
+            this.width = 950;
             this.height = 100;
         } else {
             this.width = 100;
