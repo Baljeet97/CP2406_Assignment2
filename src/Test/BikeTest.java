@@ -9,6 +9,7 @@ class BikeTest {
 
     @Test
     void bikeTest() {
+
         Bike bike = new Bike(50, 20, 1, 0);
         assertEquals(50, bike.getX());
         assertEquals(20, bike.getY());

@@ -24,6 +24,7 @@ public abstract class Vehicle {
     }
 
     public void move() {
+
         x += xSpeed * xDir;
         y += xSpeed * yDir;
     }

@@ -11,6 +11,7 @@ public class TrafficLight extends Shape {
     private double changeState;
 
     public TrafficLight(int x, int y) {
+
         super(x, y);
         state = State.STOP;
         changeState = 0.995;
@@ -25,11 +26,13 @@ public class TrafficLight extends Shape {
 
     @Override
     public void paintComponent(Graphics g) {
+
         g.setColor(color);
         g.fillRect(x, y, width, height);
     }
 
     public void setState() {
+
         Random random = new Random();
         double nextDouble = random.nextDouble(); // Generates a random double to change the state of traffic light
 
@@ -62,6 +65,7 @@ public class TrafficLight extends Shape {
     }
 
     public Color getColor() {
+
         if (state.equals(State.GO))
             return Color.green;
         else
@@ -72,7 +76,8 @@ public class TrafficLight extends Shape {
         this.color = color;
     }
 
-    public enum State { //Using enums to determine the state
+    public enum State {
+        //Using enums to determine the state
         STOP, GO
     }
 }

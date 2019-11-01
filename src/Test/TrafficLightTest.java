@@ -12,6 +12,7 @@ class TrafficLightTest {
 
     @Test
     void trafficLights() {
+
         TrafficLight lights = new TrafficLight(20, 50);
         assertEquals(20, lights.getPositionX());
         assertEquals(50, lights.getPositionY());
@@ -26,6 +27,7 @@ class TrafficLightTest {
 
     @Test
     void lightColor() {
+
         TrafficLight lights = new TrafficLight(20, 50);
         boolean check = (lights.getColor() == Color.red || lights.getColor() == Color.green);
         assertTrue(check);

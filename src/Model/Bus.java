@@ -28,6 +28,7 @@ public class Bus extends Vehicle {
 
     @Override
     public void update(int trafficLightXPos, int trafficLightYPos, TrafficLight.State state) {
+
         if ((y + height - 100 == trafficLightXPos && state == TrafficLight.State.STOP)) {
             yDir = 0;
             xDir = 1;
@@ -45,6 +46,7 @@ public class Bus extends Vehicle {
 
     @Override
     public void paintComponent(Graphics g) {
+
         g.setColor(color);
         if (isVertical)
             g.fillRect(x, y, width, height);

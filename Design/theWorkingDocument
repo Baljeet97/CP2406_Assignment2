@@ -1,0 +1,36 @@
+The Working Document:
+To plan out the software development process, your working document is expected to describe the following:
+
+Problem specification:
+
+1.What exactly is the problem?
+The problem is to design a traffic simulation which simulates the behaviour of the real world traffic. It should be based on
+Australian road rules, which ust include traffic lights, a bus, a car and a motorbike. apart from that a straight road, T-intersection
+and a 4-way intersection. apart from that there should be an option from city editing where user can build a city and run simulator on it.
+The vehicles should not crash into each other and the speed limit is 60Km/h. Vehicle should stop a red light and move on green light.
+
+2.How will the program be used?
+This program will be used to monitor traffic on the road.
+It can be run from main. It will monitor speed of the vehicles and number of vehicles on the road as well.
+
+3.How will the program behave?
+It will behave closer to the real-life traffic situations, where vehicles will be following the road rules. All the classes and methods will behave according to their defined functionality.
+on opening the program user will get option if they want to run simulator or build a city first.
+
+Problem decomposition using UML class diagrams:
+
+1.What objects will be used and how will they interact?
+    a.	Objects – Vehicle, Traffic Light, Road, Shapes
+    b.	All vehicles, roads and traffic lights will inherit properties from Shapes class, which is build to draw rectangles in shapes.
+
+2.Divide the problem into objects.
+The problem is divided into various objects like: main, Traffic light, vehicle, car, bus, motorbike and road.
+
+a. Controller will run the program, after running the program, user will see main menu, where they will get option to choose between running
+simulation and building city.
+b. while building city, user can add roads, vehicles and traffic lights.
+c. all vehicles will follow road rules by stopping on red light and moving on green light. and while turing left and right.
+d. vehicle will decide randomly which way it will turn and there is random speed for all the vehicles.
+
+The UML diagram should be able to give a clear view of how classes  will interact.
+And UML will show what member fields and methods are private, public or package-private.

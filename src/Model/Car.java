@@ -23,12 +23,14 @@ public class Car extends Vehicle {
 
     @Override
     public void move() {
+
         x += xDir;
         y += yDir;
     }
 
     @Override
     public void update(int trafficLightXPos, int trafficLightYPos, TrafficLight.State state) {
+
         if ((x + width == trafficLightXPos && state == TrafficLight.State.STOP)) {
             xDir = 0;
         } else if ((state == TrafficLight.State.GO))

@@ -48,6 +48,7 @@ public class Controller extends JPanel {
     }
 
     private void animate() {
+
         if (timer != null) {
             timer.stop();
         }
@@ -72,7 +73,6 @@ public class Controller extends JPanel {
         });
         timer.start();
     }
-
 
     private void stop() {
         timer.stop();

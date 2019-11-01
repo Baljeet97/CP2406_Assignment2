@@ -21,6 +21,7 @@ public class Road extends Shape {
 
     private void roadDimensions() // setting road length and width according to the orientation
     {
+
         if (!isVertical) {
             this.width = 950;
             this.height = 100;
@@ -56,6 +57,7 @@ public class Road extends Shape {
 
     @Override
     public void paintComponent(Graphics g) {
+
         g.setColor(color);
         g.fillRect(x, y, width, height);
     }

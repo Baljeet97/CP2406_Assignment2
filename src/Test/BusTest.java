@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class BusTest {
     @Test
     void busTest() {
+
         Bus bus = new Bus(50, 20, 1, 0);
         assertEquals(50, bus.getX());
         assertEquals(20, bus.getY());
