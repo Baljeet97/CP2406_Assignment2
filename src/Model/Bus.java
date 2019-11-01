@@ -26,13 +26,12 @@ public class Bus extends Vehicle {
         y += yDir;
     }
 
-
     @Override
     public void update(int trafficLightXPos, int trafficLightYPos, TrafficLight.State state) {
         if ((y + height - 100 == trafficLightXPos && state == TrafficLight.State.STOP)) {
             yDir = 0;
             xDir = 1;
-            xSpeed = randomSpeed();
+            xSpeed = 2 + randomSpeed();
         } else if ((state == TrafficLight.State.GO))
             yDir = 1;
         ySpeed = randomSpeed();

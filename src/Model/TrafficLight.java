@@ -6,11 +6,11 @@ import java.util.Random;
 public class TrafficLight extends Shape {
 
     private Color color;
-    private int positionX, positionY, width, height;
+    private int width, height;
     private State state;
     private double change_rate;
 
-    public TrafficLight(int x, int y, Color color) {
+    public TrafficLight(int x, int y) {
         super(x, y);
         state = State.STOP;
         change_rate = 0.995;
@@ -31,7 +31,7 @@ public class TrafficLight extends Shape {
 
     public void setState() {
         Random random = new Random();
-        double nextDouble = random.nextDouble(); // Generates a random double
+        double nextDouble = random.nextDouble(); // Generates a random double to change the state of traffic light
 
         switch (state) {
             case GO:

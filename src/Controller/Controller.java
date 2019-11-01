@@ -9,38 +9,35 @@ import java.awt.*;
 import java.util.Random;
 
 public class Controller extends JPanel {
-    Timer timer;
+
+    private Timer timer;
     private static final Random random = new Random();
 
-    SimMenu menu = new SimMenu();
+    private Road straight = new Road(0, 300, false);
+    private Road fourWay = new Road(300, 0, true);
+    private Road tSection = new Road(890, 0, true);
+    private Car car = new Car(straight.getX() + 5, straight.getY() + 5, 1, 0);
+    private Bus bus = new Bus(fourWay.getX() + 60, fourWay.getY() + 5, 1, 0);
+    private Bike bike = new Bike(tSection.getX() + 60, tSection.getY() + 10, 1, 1);
+    private TrafficLight trafficLightStraight = new TrafficLight(straight.getX() + straight.getHeight() + 160, straight.getY() - 26);
+    private TrafficLight trafficLightFourWay = new TrafficLight(fourWay.getX() + fourWay.getHeight() - 690, fourWay.getY() + 274);
 
-    Road straight = new Road(0, 300, false);
-    Road fourWay = new Road(300, 0, true);
-    Road tSection = new Road(890, 0, true);
-    Car car = new Car(straight.getX() + 5, straight.getY() + 5, 1, 0);
-    Bus bus = new Bus(fourWay.getX() + 60, fourWay.getY() + 5, 1, 0);
-    Bike bike = new Bike(tSection.getX() + 60, tSection.getY() + 10, 1, 1);
-    TrafficLight trafficLightStraight = new TrafficLight(straight.getX() + straight.getHeight() + 160, straight.getY() - 26, Color.red);
-    TrafficLight trafficLightFourWay = new TrafficLight(fourWay.getX() + fourWay.getHeight() - 690, fourWay.getY() + 274, Color.green);
+    private Controller() {
 
-
-    public Controller() {
         super();
+        SimMenu menu = new SimMenu();
         add(menu.start);
         add(menu.stop);
         menu.start.addActionListener(actionEvent -> animate());
         menu.stop.addActionListener(actionEvent -> stop());
-
     }
 
     public static void main(String[] args) {
-
-
         new MainMenu();
-
     }
 
     public static void simulationMenu() {
+
         JFrame frame = new JFrame();
         frame.add(new Controller());
         frame.setSize(1000, 700);
@@ -48,11 +45,9 @@ public class Controller extends JPanel {
         frame.setResizable(false);
         frame.setTitle("Simulator");
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-
     }
 
     private void animate() {
-
         if (timer != null) {
             timer.stop();
         }
@@ -73,22 +68,19 @@ public class Controller extends JPanel {
             } else if (trafficLightStraight.getState() == TrafficLight.State.STOP) {
                 trafficLightFourWay.setColor(Color.green);
             }
-
             repaint();
         });
         timer.start();
-
     }
 
 
     private void stop() {
         timer.stop();
-
     }
 
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
 
+        super.paintComponent(g);
         int cars = 10;
 
         straight.paintComponent(g);
@@ -103,11 +95,7 @@ public class Controller extends JPanel {
         Model.Vehicle[] vehicles = new Model.Vehicle[cars];
         for (int i = 0; i < vehicles.length; ++i) {
             vehicles[i] = new Model.Car(straight.getX() + 10, straight.getY() + 5, 1, 0);
-//            System.out.println("car" + i);
             car.paintComponent(g);
         }
-
     }
-
-
 }

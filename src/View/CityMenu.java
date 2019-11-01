@@ -35,7 +35,7 @@ class CityMenu extends JFrame implements ActionListener {
     private Car car = new Car(straight.getX() + 5, straight.getY() + 5, 1, 0);
     private Bus bus = new Bus(fourWay.getX() + 60, fourWay.getY() + 5, 1, 0);
     private Bike bike = new Bike(tSection.getX() + 60, tSection.getY() + 10, 1, 1);
-    private TrafficLight trafficLightStraight = new TrafficLight(straight.getX() + straight.getHeight() + 160, straight.getY() - 26, Color.red);
+    private TrafficLight trafficLightStraight = new TrafficLight(straight.getX() + straight.getHeight() + 160, straight.getY() - 26);
 
     CityMenu() {
         /*adding to variables to JFrame and adding ActionListener*/
